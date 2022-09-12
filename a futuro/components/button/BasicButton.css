@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+.button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  /* color: var(--theme-ui-colors-text); */
+  color: aliceblue;
+  text-align: center;
+  border: solid var(--button-clr);
+  border-radius: 10px;
+  background-color: var(--button-clr);
+  width: auto;
+  height: 60px;
+  margin: 0px 10px 0px 0px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 2px solid var(--button-clr);
+  color: var(--button-clr);
+  background-color: rgba(0, 0, 0, 0.025);
+}

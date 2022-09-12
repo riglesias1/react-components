@@ -1,0 +1,63 @@
+.rounded-button-container {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+}
+
+.rounded-button-container .rounded-button {
+  display: inline-block;
+  float: left;
+  height: 60px;
+  width: 60px;
+  margin: 0px 5px 15px;
+  overflow: hidden;
+  background: var(--colorpage-gray-transparent);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  width: var(--rounded-button-width);
+}
+
+.rounded-button-container .rounded-button:hover {
+  width: 250px;
+}
+
+.rounded-button-container .rounded-button .rounded-button-icon {
+  background: var(--colorpage-gray-transparent);
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+
+.rounded-button:hover .rounded-button-icon {
+  background: var(--rounded-button-clr);
+}
+
+.rounded-button-container .rounded-button .rounded-button-icon svg {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  transition: all 0.3s ease-out;
+}
+
+.rounded-button-container .rounded-button:hover .rounded-button-icon svg {
+  color: var(--colorpage-white);
+}
+
+.rounded-button-container .rounded-button span {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 60px;
+  margin-left: 15px;
+  transition: all 0.3s ease-out;
+}
+
+.rounded-button-container .rounded-button span {
+  color: var(--rounded-button-clr);
+}

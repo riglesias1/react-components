@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  documentation:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+    volumes:
+      - './src:/app/src'
+      - './public:/app/public'
+      - './package.json:/app/package.json'
+      - '/app/node_modules'
+      - '/etc/localtime:/etc/localtime'
+    ports:
+      - 3000:6006

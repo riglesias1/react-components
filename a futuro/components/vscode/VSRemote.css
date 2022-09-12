@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+.vsremote-container {
+  width: 470px;
+  position: relative;
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 0 30px 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
+}
+
+.title-vsremote {
+  font-size: 15pt;
+  font-weight: 500;
+  height: 10px;
+}
+
+.line-vsremote {
+  border-left: 3px solid var(--remote-clr);
+  width: 15px;
+}
+
+.description-vsremote {
+  display: inline-block;
+  padding: 5px 0px 0px 0px;
+  line-height: 15px;
+  font-size: 12pt;
+  filter: invert(20%);
+}
+
+.input-user-vsremote {
+  font-family: 'Poppins', sans-serif;
+  width: 130px;
+  color: var(--colorpage-gray);
+  border: 1px solid var(--colorpage-gray-transparent);
+  border-radius: 6px;
+  background-color: var(--colorpage-gray-transparent);
+  background-image: url('https://cdn.iconscout.com/icon/free/png-256/search-2287049-1907871.png');
+  background-position: 10px 5px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  padding: 7px 0px 7px 35px;
+}
+
+.input-user-vsremote:focus {
+  outline: none;
+}
+
+.cta-vsremote {
+  display: inline-block;
+  border: none;
+  background: none;
+  text-decoration: none;
+  padding: 10px 0px 5px 10px;
+}
+
+.cta-vsremote span {
+  padding: 0 15px 7px 7px;
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cta-vsremote svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+  fill: var(--remote-clr);
+}
+
+.cta-vsremote:hover svg {
+  transform: translateX(0);
+}
+
+.cta-vsremote:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation-vsremote {
+  position: relative;
+  color: var(--remote-clr);
+  padding: 0 0 20px 0;
+}
+
+.hover-underline-animation-vsremote:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--remote-clr);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta-vsremote-vsremote:hover .hover-underline-animation-vsremote:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

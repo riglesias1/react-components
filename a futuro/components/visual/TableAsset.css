@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+/* Navbar top */
+.indice-container details summary::before {
+  cursor: pointer;
+  position: absolute;
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+  left: 0rem;
+  margin-right: 0.5rem;
+  content: ' \279C';
+  transition: ease-in-out 0.25s;
+}
+
+.indice-container details[open] summary {
+  font-weight: 500;
+}
+
+.indice-container details[open] summary::before {
+  transform: rotate(90deg) translateX(5px) translateY(-5px);
+  content: ' \279C';
+}
+
+.indice-container details summary {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--theme-ui-colors-text);
+  padding: 15px 20px 20px 30px;
+  cursor: pointer;
+}
+
+/* Propeties of unit */
+.title-indice {
+  font-size: 15pt;
+  height: 10px;
+}
+
+.logo-indice svg {
+  width: 50px;
+  height: 50px;
+  border: 0;
+}
+
+.description-indice {
+  padding: 0 0 10px 0;
+  line-height: 15px;
+  font-size: 12pt;
+  filter: invert(20%);
+}
+
+.description-indice td button {
+  font-size: 12pt;
+  /* filter: invert(20%); */
+  border: none;
+  background: transparent;
+  margin-left: -5px;
+  font-weight: bold;
+}
+
+/* Container */
+.indice-container details {
+  display: flex;
+  border-radius: 15px;
+  border-left: 12px solid var(--indice-clr);
+  padding: 15px 15px 40px 15px;
+  margin-top: 15px;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  background: var(--colorpage-gray-transparent);
+  max-height: 50px;
+}
+
+.indice-container details table {
+  cursor: default;
+  margin-left: 25px;
+  display: inline-block;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.indice-container details tbody {
+  float: left;
+  max-width: 100%;
+  padding: 10px 20px;
+  min-width: 250px;
+}
+
+.indice-container details:not([open]) {
+  height: var(--height-indice);
+  /* 120 base 100 por cada uno*/
+}
+
+.indice-container details[open] {
+  max-height: 9000px;
+}
+
+/* Pop out tooltip */
+td .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: var(--colorpage-white);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -60px;
+  overflow: visible;
+}
+
+td .tooltiptext::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+td:hover .tooltiptext {
+  visibility: visible;
+}

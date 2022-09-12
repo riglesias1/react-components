@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+@media (min-width: 1000px) {
+
+  .card-wrapper .card:nth-child(odd) .head::after,
+  .card-wrapper .card:nth-child(even) .head::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+
+  .card-wrapper .card:nth-child(odd) .head::before,
+  .card-wrapper .card:nth-child(even) .head::before {
+    position: absolute;
+    content: '';
+    width: 9px;
+    height: 9px;
+    background-color: var(--colorpage-primary);
+    border-radius: 9px;
+    box-shadow: 0px 0px 2px 8px var(--colorpage-gray-transparent);
+  }
+
+  .card-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 auto;
+  }
+
+  .card-wrapper::after {
+    border-left: 1px solid #bdbdbd;
+  }
+
+  .card-wrapper .card {
+    max-width: 450px;
+    height: 300px;
+    margin: 90px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
+  .card-wrapper .card:nth-child(odd) {
+    margin-right: 45px;
+  }
+
+  .card-wrapper .card:nth-child(odd) .head::after {
+    border-left-width: 15px;
+    border-left-style: solid;
+    left: 100%;
+  }
+
+  .card-wrapper .card:nth-child(odd) .head::before {
+    left: 337.5px;
+  }
+
+  .card-wrapper .card:nth-child(even) {
+    margin-left: 45px;
+  }
+
+  .card-wrapper .card:nth-child(even) .head::after {
+    border-right-width: 15px;
+    border-right-style: solid;
+    right: 100%;
+  }
+
+  .card-wrapper .card:nth-child(even) .head::before {
+    right: 341.5px;
+  }
+
+  .card-wrapper .card:nth-child(2) {
+    margin-top: 180px;
+  }
+
+  .card-wrapper .card .body {
+    height: auto;
+  }
+}
+
+.card-wrapper {
+  position: relative;
+  width: 500px;
+  height: var(--unity-height-card);
+  max-width: 77%;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-90px);
+}
+
+.card-wrapper::after {
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 68.4%;
+  border-left: 1px solid var(--colorpage-primary);
+}
+
+.card-wrapper .card {
+  position: relative;
+  display: block;
+  margin: 10px auto 80px;
+  max-width: 94%;
+  z-index: 2;
+}
+
+@media (min-width: 720px) {
+  .card-wrapper .card {
+    font-size: 130%;
+    max-width: 40%;
+  }
+}
+
+.card-wrapper .card .head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--colorpage-white);
+  font-weight: 400;
+}
+
+.card-wrapper .card .head .number-box {
+  display: inline;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  font-size: 27px;
+  line-height: 23px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.17);
+}
+
+.card-wrapper .card .head h1 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: inherit;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 6px;
+  line-height: 1rem;
+}
+
+@media (min-width: 480px) {
+  .card-wrapper .card .head h1 {
+    font-size: 80%;
+    line-height: 1.2rem;
+  }
+
+  .card-wrapper .card {
+    max-width: 60%;
+    box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+  }
+
+  .card-wrapper .card .head h1 span {
+    font-size: 0.8rem;
+  }
+}
+
+.card-wrapper .card .head h1 span {
+  display: block;
+  font-size: 0.6rem;
+  margin: 0;
+}
+
+.card-wrapper .card .body {
+  background: var(--colorpage-gray-transparent);
+  border: 1px solid var(--colorpage-gray-transparent);
+  border-radius: 0px 0px 5px 5px;
+  border-top: 0;
+  padding: 10px 30px 10px;
+  width: 236.5px;
+  flex-wrap: wrap;
+}
+
+.card-wrapper .card .body p {
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 15px;
+}
+
+.card-wrapper .card--step {
+  background-color: var(--unity-clr);
+  height: 73px;
+  margin-bottom: 300px;
+}
+
+.card-wrapper .card--step .head::after {
+  border-color: var(--unity-clr);
+}
+
+.urltopic {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--theme-ui-colors-text);
+  transition: ease-in-out 0.3s;
+}
+
+.urltopic:hover {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--unity-clr);
+}
+
+@media (max-width: 960px) {
+  .card-wrapper::after {
+    left: 81.5%;
+  }
+
+  .card-wrapper {
+    height: auto;
+  }
+
+  .card-wrapper .card .body {
+    width: auto;
+  }
+}

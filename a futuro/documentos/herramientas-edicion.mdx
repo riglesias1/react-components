@@ -1,0 +1,622 @@
+---
+name: Herramientas de edición
+route: /herramientas-edicion
+---
+
+import {
+  ImageIcon,
+  Title,
+  BasicButton,
+  RoundedButton,
+  Frame,
+  Slider,
+  Menu,
+  Video,
+  JSONViewer,
+  Extension,
+  TimeLine,
+  VerticalTab,
+  VSRemote,
+  TableAsset,
+  Alert,
+} from '@/Modules';
+import { Playground } from 'docz';
+
+import { FaGithub, FaRegFlag, FaEdit, FaReact } from 'react-icons/fa';
+import { SiVisualstudiocode, SiGithub, SiDiscord } from 'react-icons/si';
+
+# <ImageIcon size="1%" img='/logos/logo.png' /> <Title title="Academy Learning Platform" subtitle="Herramientas de edición" center />
+
+<br />
+<br />
+
+---
+
+## Utilidades basicas:
+
+Si se desea cambiar la paleta de colores utilizada en la documentación se puede hacer desde el **main.css**, entrando desde aquí:
+
+<VSRemote
+  title="Server l01"
+  description="Conf. visual"
+  host="l01.leafnoise.io"
+  path="/var/sources/mteyss/documentacion/academy/src/components"
+  file="main.css"
+/>
+
+Los iconos utilizados se encuentran facilmente para su uso desde la pagina:
+
+<RoundedButton
+  title="React Icons"
+  route="https://react-icons.github.io/react-icons"
+  icon={<FaReact />}
+  color="#53C0DD"
+/>
+<br />
+
+Hay componentes normalizados para cada situación.
+
+- En caso de botones de descarga se utiliza el componente **Slider**
+- Para links externos se utiliza **RoundedButton**
+- Al tener listas largas de texto es conveniente usar **VerticalTab**
+- En el inicio de cada unidad se utiliza **Title**
+- Si se necesita renderizar video o imagen estan los componentes **ImageIcon** o **Video**
+
+<br />
+
+## Ubicación y edición de documentación:
+
+<Video local="/videos/herramientas-edicion.mp4" />
+
+## Componentes preparados para usar:
+
+### Render de Imagenes :
+
+<p style={{ color: '#c44343' }}>
+  ▶ REQUERIDO ◀ <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ img </label> : Campo string ― (Import
+  por url o path)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ size </label> : Campo string ― (porcentaje)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ border </label> : Campo bool ― (sombreado)
+</p>
+
+<Playground>
+  <ImageIcon img="/logos/logo.png" size="10%" />
+</Playground>
+
+### Botón redondeado :
+
+Normalmente utilizado para redireccionarse a url externas a la documentación.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ route </label> : Campo string ― (url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ icon </label> : Campo svg ― (Hexa o RGB)
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ expand </label> : Campo bool ― (expandido
+  default)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+
+<Playground>
+  <RoundedButton
+    title="VS Code"
+    route="/test"
+    icon={<SiVisualstudiocode />}
+    color="#0078d7"
+    expand
+  />
+</Playground>
+
+### Slider :
+
+Utilizadas para la descarga de programas de terceros.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ route </label> : Campo string ― (url)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ colorPrimary </label> : Campo string ―
+  (Hexa o RGB)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ colorSecondary </label> : Campo string
+  ― (Hexa o RGB)
+</p>
+
+<Playground>
+  <Slider
+    title="VS Code"
+    subtitle="Utilizado para su uso"
+    route="/"
+    icon={<SiVisualstudiocode />}
+    color="#0078d7"
+  />
+</Playground>
+
+### Simulador para paginas externas :
+
+Usado idealmente para no redireccionar a paginas externas y podes utilizar herramientas de practicas. Por ejemplo: consolas de linux, practicas de programacion, etc...
+
+Un ejemplo de otra URL es cambiando la actual por un entorno de Python:
+
+<p style={{ color: '#949494' }}>
+  https://trinket.io/embed/python?category=python&start=result
+</p>
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ url </label> : Campo string ― (url)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional dentro del JSON ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ width </label> : Campo string ― (anchura)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ height </label> : Campo string ― (altura)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ scroll </label> : Campo boolean ― (scrolling)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ background </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+
+<Playground>
+  <Frame
+    title="Javascript simulator"
+    width="100%"
+    height="510"
+    url="https://interactive-examples.mdn.mozilla.net/pages/js/statement-trycatch.html"
+  />
+</Playground>
+
+### Lista contraible :
+
+Creada especificamente para el despliegue de Assets utilizados en los flujos, pero se encuentra preparada para cualquier uso.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ list </label> : Campo array ― (lista de
+  dicts)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional dentro del JSON ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ unicode </label> : Campo string ― (descripción)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ icon </label> : Campo svg ― (react-icons
+  o url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+
+<Playground>
+  <TableAsset
+    list={[
+      {
+        title: 'Inicio',
+        unicode: 'f024',
+        color: '#2E927B',
+        icon: <FaRegFlag />,
+      },
+      {
+        title: 'Formulario original',
+        unicode: 'f044',
+        color: '#0F0F9E',
+        icon: <FaEdit />,
+      },
+    ]}
+  />
+</Playground>
+
+### Lista Vertical :
+
+Lista de datos desplegados por tabs.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ list </label> : Campo array ― (lista de
+  dicts)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional dentro del JSON ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ name </label> : Campo string ― (nombre)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ content </label> : Campo string ― (contenido)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ textButton </label> : Campo string ― (contenido
+  boton)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ url </label> : Campo string ― (url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ icon </label> : Campo svg ― (react-icons
+  o url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+
+<Playground>
+  <VerticalTab
+    list={[
+      {
+        name: 'First Tab',
+        icon: <FaRegFlag />,
+        title: 'Testing',
+        content: 'Text of something bla bla bla',
+        textButton: 'Go to somewhere',
+        url: '/components',
+      },
+      {
+        name: 'Second Tab',
+        content: 'Text of something bla bla bla',
+      },
+      {
+        name: 'Third Tab',
+        content: 'Text of something bla bla bla',
+      },
+    ]}
+  />
+</Playground>
+
+### Linea de tiempo :
+
+Utilizada en el indice y preparada para renderizarse con solo pasar un JSON.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ json </label> : Campo dict ― (dict por
+  unidad)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional dentro del JSON ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ topics </label> : Campo array [name y
+  url] ― (lista de dicts)
+</p>
+
+<Playground>
+  <TimeLine
+    json={{
+      unidad1: {
+        title: 'JSON Things',
+        color: '#4d92eb',
+        topics: [
+          {
+            name: 'introduccion',
+            url: '/unidades/intro#introducción',
+          },
+          {
+            name: 'Metodología de trabajo',
+            url: '/unidades/intro#metodología-de-trabajo',
+          },
+          {
+            name: 'Introducción a SSH',
+            url: '/unidades/intro#introducción-a-ssh',
+          },
+        ],
+      },
+      unidad2: {
+        title: 'Other Things',
+        color: '#ce43eb',
+        topics: [
+          {
+            name: 'introduccion',
+            url: '/unidades/intro#introducción',
+          },
+          {
+            name: 'Metodología de trabajo',
+            url: '/unidades/intro#metodología-de-trabajo',
+          },
+          {
+            name: 'Introducción a SSH',
+            url: '/unidades/intro#introducción-a-ssh',
+          },
+        ],
+      },
+    }}
+  />
+</Playground>
+
+### Botones simples :
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ route </label> : Campo string ― (url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ external </label> : Campo bool ― (url
+  externa)
+</p>
+
+<Playground>
+  <BasicButton
+    title="Unidad 09"
+    color="#fc5f9b"
+    route="/src-unidades-unidad-1"
+    external
+  />
+</Playground>
+
+### Extensiones directas :
+
+Para la descarga de extensiones en su VSCode local, es necesario entrar a la siguiente pagina para obtener el link de la extensión. Luego el titulo, logo y autor son opcionales.
+
+<RoundedButton
+  title="Market Place VSCode"
+  route="https://marketplace.visualstudio.com/vscode"
+  icon={<SiVisualstudiocode />}
+  color="#0078d7"
+/>
+<br />
+Por ejemplo en el caso de la siguiente extensión, se puede obtener el link de la
+url al encontrar la extensión que necesitemos
+<p>
+  https:// marketplace.visualstudio.com/items?itemName=
+  <label style={{ fontWeight: 'bold', color: '#489c5a' }}>
+    ms-python.python
+  </label>
+</p>
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ description </label> : Campo string ―
+  (descripción)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ author </label> : Campo string ― (autor)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ logo </label> : Campo svg ― (react-icons
+  o url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ link </label> : Campo string ― (extension
+  ID)
+</p>
+
+<Playground>
+  <Extension
+    title="Docker"
+    description="Ayuda al control de volumenes y contenedores"
+    author="Microsoft"
+    link="ms-azuretools.vscode-docker"
+    logo="https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-docker/1.20.0/1645549725810/Microsoft.VisualStudio.Services.Icons.Default"
+  />
+</Playground>
+
+### Conexion directa a carepta remota :
+
+Da la posibilidad de conectarse directamente en su VSCode local solamente indicando el host. Tambien se puede especificar una carpeta especifica para facilitar al lector.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ host </label> : Campo string ― (host server)
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ description </label> : Campo string ―
+  (descripción)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ path </label> : Campo string ― (base path)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ file </label> : Campo string ― (file path)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (Hexa
+  o RGB)
+</p>
+
+<Playground>
+  <VSRemote
+    title="SSH Dev"
+    description="Servidor de pruebas/development"
+    color="#fc5f9b"
+    host="l01.leafnoise.io"
+    path="/var"
+  />
+</Playground>
+
+### Titulos destacados :
+
+Normalmente utilizado al inicio de cada unidad para dar un indicio del tema a tratar.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ subtitle </label> : Campo string ― (descripción)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (color)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ center </label> : Campo bool ― (centrado)
+</p>
+
+Ejemplo:
+
+<Playground>
+  <Title
+    title="A centered title"
+    subtitle="A subtitle"
+    color="#fc5f9b"
+    center
+  />
+</Playground>
+
+### Menus desplegables :
+
+Utiliza los iconos mencionados en el inicio del documento, y solo necesita un titulo para poder utilizarse. Puede ser utilizada para redireccionar a una url o meramente visual.
+Los campos posibles del menu son:
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ title </label> : Campo string ― (titulo)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ subtitle </label> : Campo string ― (descripción)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ color </label> : Campo string ― (color)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ route </label> : Campo string ― (url)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ small </label> : Campo bool ― (tamaño)
+  <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ icon </label> : Campo svg ― (react-icons
+  o path)
+</p>
+
+Ejemplo:
+
+<Playground>
+  <Menu
+    title="Complete Menu"
+    subtitle="Assign to"
+    color="#a362ea"
+    icon={<FaGithub />}
+    route="/"
+    small
+  />
+</Playground>
+
+### JSON Viewer :
+
+El visualizador JSON solo necesita un diccionario para poder generarse.
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ json </label> : Campo dict ― (json a renderizar)
+  <br />
+</p>
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ expanded </label> : Campo bool ― (expanido
+  default)
+</p>
+
+Ejemplo:
+
+<Playground>
+  <JSONViewer
+    expanded
+    json={{
+      User: {
+        'Personal Info': {
+          Name: 'Rodri',
+          Age: 21,
+        },
+        Enabled: true,
+        Messages: ['Message 1', 'Message 2', 'Message 3'],
+      },
+      Total: 1,
+    }}
+  />
+</Playground>
+
+### Alertas :
+
+Las alertas pueden variar segun el tipo y se utiliza de la siguiente manera:
+
+<p style={{ color: '#489c5a' }}>
+  ▶ Opcional ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ kind </label> : Campo string ― ('info',
+  'positive', 'negative', 'warning')
+</p>
+
+Ejemplo:
+
+<Playground>
+  <Alert kind="info">Some message</Alert>
+</Playground>
+
+### Videos Local o por Drive :
+
+Hay dos formas de visualizar un video, importandolo localmente o usando el link de drive.
+En el caso de compartir la url de drive, al tener el link, solo se necesita el ID. Por ejemplo en este caso el ID se encuentra en negrita:
+
+<p style={{ whiteSpace: 'pre-line' }}>
+  https:// drive.google.com/file/d/
+  <label style={{ fontWeight: 'bold', color: '#489c5a' }}>
+    1MAeXqdQEOTcByNdi8fBAdD3r0Ul18Qu6
+  </label>
+  /view
+</p>
+
+Los campos a utilzar son:
+
+<p style={{ color: '#c44343' }}>
+  ▶ Requerido ◀<br />
+  <label style={{ fontWeight: 'bold' }}> ▸ local </label> : Campo string ― (video
+  import) <br />
+  <label style={{ fontWeight: 'bold' }}> ▸ drive </label> : Campo string ―
+  (video ID)
+</p>
+
+Ejemplo:
+
+<Playground>
+  <Video local="/videos/ejemplo.mp4" />
+</Playground>

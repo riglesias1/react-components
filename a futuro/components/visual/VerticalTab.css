@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.container-verticaltab {
+  font-family: 'Poppins', sans-serif;
+  /* width: max-content; */
+  max-width: 70%;
+  /* 850px */
+  margin: 20px 0px 20px 20px;
+  padding-right: 50px;
+  background-color: var(--colorpage-gray-transparent);
+  border-radius: 30px;
+  overflow: auto;
+  white-space: pre-line;
+}
+
+.content-verticaltab {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-verticaltab .list {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  background-color: var(--colorpage-gray-transparent);
+  border-radius: 30px 0px 0px 30px;
+  position: sticky;
+  top: 0;
+  height: var(--vertical-height);
+  margin-bottom: var(--vertical-invert-height);
+}
+
+.content-verticaltab .list label {
+  height: 60px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 57px;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 10px;
+  transition: all 0.5s ease;
+  z-index: 12;
+  width: max-content;
+  min-width: 200px;
+}
+
+.content-verticaltab .list label:hover {
+  color: var(--vertical-color);
+}
+
+.content-verticaltab .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 30px 0px 0px 30px;
+  background: var(--vertical-color);
+  transition: all 0.4s ease;
+}
+
+.content-verticaltab .text-content-verticaltab {
+  width: 80%;
+  height: var(--vertical-height);
+}
+
+.content-verticaltab .text {
+  position: relative;
+  display: none;
+}
+
+.content-verticaltab .text .title {
+  font-size: 25px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.content-verticaltab .text a,
+.content-verticaltab .text Link {
+  position: absolute;
+  bottom: 10px;
+  right: -25px;
+}
+
+.content-verticaltab .text p {
+  text-align: justify;
+  line-height: 22px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.content-verticaltab input {
+  display: none;
+}
+
+.cta {
+  transform: translateY(55px);
+}
+
+.icon-verticaltab {
+  padding-right: 10px;
+  font-size: 27px;
+}
+
+.icon-verticaltab svg {
+  transform: translateY(5px);
+}
+
+@media (max-width: 1100px) {
+  .container-verticaltab {
+    max-width: 90%;
+  }
+
+  .content-verticaltab .list {
+    margin-right: 20px;
+  }
+
+  .content-verticaltab .list label {
+    min-width: 100px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .container-verticaltab {
+    max-width: 100%;
+    margin: 20px 0px 20px 0px;
+  }
+
+  .content-verticaltab .list label {
+    font-size: 12px;
+  }
+
+  .content-verticaltab .text .title {
+    font-size: 20px;
+  }
+
+  .content-verticaltab .text p {
+    font-size: 12px;
+  }
+}
